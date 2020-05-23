@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+<html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"feaccaa2a1",applicationID:"371143768"};window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var i=n[t]={exports:{}};e[t][0].call(i.exports,function(n){var i=e[t][1][n];return r(i||n)},i,i.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<t.length;i++)r(t[i]);return r}({1:[function(e,n,t){function r(){}function i(e,n,t){return function(){return o(e,[u.now()].concat(f(arguments)),n?null:this,t),n?void 0:this}}var o=e("handle"),a=e(4),f=e(5),c=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",d=l+"ixn-";a(p,function(e,n){s[n]=i(l+n,!0,"api")}),s.addPageAction=i(l+"addPageAction",!0),s.setCurrentRouteName=i(l+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,i="function"==typeof n;return o(d+"tracer",[u.now(),e,t],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],t),i)try{return n.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],t),e}finally{c.emit("fn-end",[u.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=i(d+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){var t=e.getEntries();t.forEach(function(e){"first-paint"===e.name?c("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&c("timing",["fcp",Math.floor(e.startTime)])})}function i(e,n){var t=e.getEntries();t.length>0&&c("lcp",[t[t.length-1]])}function o(e){if(e instanceof s&&!l){var n,t=Math.round(e.timeStamp);n=t>1e12?Date.now()-t:u.now()-t,l=!0,c("timing",["fi",t,{type:e.type,fid:n}])}}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var a,f,c=e("handle"),u=e("loader"),s=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){a=new PerformanceObserver(r),f=new PerformanceObserver(i);try{a.observe({entryTypes:["paint"]}),f.observe({entryTypes:["largest-contentful-paint"]})}catch(p){}}if("addEventListener"in document){var l=!1,d=["click","keydown","mousedown","pointerdown","touchstart"];d.forEach(function(e){document.addEventListener(e,o,!1)})}}},{}],3:[function(e,n,t){function r(e,n){if(!i)return!1;if(e!==i)return!1;if(!n)return!0;if(!o)return!1;for(var t=o.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}n.exports={agent:i,version:o,match:r}},{}],4:[function(e,n,t){function r(e,n){var t=[],r="",o=0;for(r in e)i.call(e,r)&&(t[o]=n(r,e[r]),o+=1);return t}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],5:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,i=t-n||0,o=Array(i<0?0:i);++r<i;)o[r]=e[n+r];return o}n.exports=r},{}],6:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function i(e){function n(e){return e&&e instanceof r?e:e?c(e,f,o):o()}function t(t,r,i,o){if(!l.aborted||o){e&&e(t,r,i);for(var a=n(i),f=v(t),c=f.length,u=0;u<c;u++)f[u].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function d(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||i(t)}function w(e,n){u(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:d,addEventListener:d,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(l.aborted=!0,s=l.backlog={})}var f="nr@context",c=e("gos"),u=e(4),s={},p={},l=n.exports=i();l.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(i.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[n]=r,r}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){i.buffer([e],r),i.emit(e,n,t)}var i=e("ee").get("handle");n.exports=r,r.ee=i},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=E.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();u(y,function(n,t){e[n]||(e[n]=t)}),c("mark",["onload",a()+E.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function i(){"complete"===d.readyState&&o()}function o(){c("mark",["domContent",a()+E.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(f=Math.max((new Date).getTime(),f))-E.offset}var f=(new Date).getTime(),c=e("handle"),u=e(4),s=e("ee"),p=e(3),l=window,d=l.document,m="addEventListener",v="attachEvent",g=l.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:g,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1167.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),E=n.exports={offset:f,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),e(2),d[m]?(d[m]("DOMContentLoaded",o,!1),l[m]("load",r,!1)):(d[v]("onreadystatechange",i),l[v]("onload",r)),c("mark",["firstbyte",f],null,"api");var x=0,O=e(6)},{}],"wrap-function":[function(e,n,t){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(5),a="nr@original",f=Object.prototype.hasOwnProperty,c=!1;n.exports=function(e,n){function t(e,n,t,i){function nrWrapper(){var r,a,f,c;try{a=this,r=o(arguments),f="function"==typeof t?t(r,a):t||{}}catch(u){l([u,"",[r,a,i],f])}s(n+"start",[r,a,i],f);try{return c=e.apply(a,r)}catch(p){throw s(n+"err",[r,a,p],f),p}finally{s(n+"end",[r,a,c],f)}}return r(e)?e:(n||(n=""),nrWrapper[a]=e,p(e,nrWrapper),nrWrapper)}function u(e,n,i,o){i||(i="");var a,f,c,u="-"===i.charAt(0);for(c=0;c<n.length;c++)f=n[c],a=e[f],r(a)||(e[f]=t(a,u?f+i:i,o,f))}function s(t,r,i){if(!c||n){var o=c;c=!0;try{e.emit(t,r,i,n)}catch(a){l([a,t,r,i])}c=o}}function p(e,n){if(Object.defineProperty&&Object.keys)try{var t=Object.keys(e);return t.forEach(function(t){Object.defineProperty(n,t,{get:function(){return e[t]},set:function(n){return e[t]=n,n}})}),n}catch(r){l([r])}for(var i in e)f.call(e,i)&&(n[i]=e[i]);return n}function l(n){try{e.emit("internal-error",n)}catch(t){}}return e||(e=i),t.inPlace=u,t.flag=a,t}},{}]},{},["loader"]);</script>
+<link rel="pingback" href="https://www.churchservices.tv/xmlrpc.php" />
+<!--[if lt IE 9]>
+	<script src="https://www.churchservices.tv/wp-content/themes/Divi/js/html5.js" type="text/javascript"></script>
+	<![endif]-->
+<script type="text/javascript">
+		document.documentElement.className = 'js';
+	</script>
+<title>Churches - ChurchServices.tv live mass and services from Churches in the UK and Ireland</title>
+
+<link rel="canonical" href="https://www.churchservices.tv/churches/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Churches - ChurchServices.tv live mass and services from Churches in the UK and Ireland" />
+<meta property="og:url" content="https://www.churchservices.tv/churches/" />
+<meta property="og:site_name" content="ChurchServices.tv live mass and services from Churches in the UK and Ireland" />
+<meta property="article:publisher" content="https://www.facebook.com/Church-Services-TV-157606014288500/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Churches - ChurchServices.tv live mass and services from Churches in the UK and Ireland" />
+<meta name="twitter:site" content="@ChurchServiceTV" />
+<meta name="twitter:creator" content="@ChurchServiceTV" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.churchservices.tv/#organization","name":"Church Support Group","url":"https://www.churchservices.tv/","sameAs":["https://www.facebook.com/Church-Services-TV-157606014288500/","https://twitter.com/ChurchServiceTV"],"logo":{"@type":"ImageObject","@id":"https://www.churchservices.tv/#logo","url":"https://www.churchservices.tv/wp-content/uploads/2018/10/CSTV-logo-March-2018.png","width":2073,"height":778,"caption":"Church Support Group"},"image":{"@id":"https://www.churchservices.tv/#logo"}},{"@type":"WebSite","@id":"https://www.churchservices.tv/#website","url":"https://www.churchservices.tv/","name":"Church Services","publisher":{"@id":"https://www.churchservices.tv/#organization"},"potentialAction":{"@type":"SearchAction","target":"https://www.churchservices.tv/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://www.churchservices.tv/churches/#webpage","url":"https://www.churchservices.tv/churches/","inLanguage":"en-US","name":"Churches - ChurchServices.tv live mass and services from Churches in the UK and Ireland","isPartOf":{"@id":"https://www.churchservices.tv/#website"},"datePublished":"2018-04-16T18:26:09+00:00","dateModified":"2018-04-25T20:24:13+00:00"}]}</script>
+
+<link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
+<link rel='dns-prefetch' href='//vjs.zencdn.net' />
+<link rel='dns-prefetch' href='//use.fontawesome.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="ChurchServices.tv live mass and services from Churches in the UK and Ireland &raquo; Feed" href="https://www.churchservices.tv/feed/" />
+<link rel="alternate" type="application/rss+xml" title="ChurchServices.tv live mass and services from Churches in the UK and Ireland &raquo; Comments Feed" href="https://www.churchservices.tv/comments/feed/" />
+<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.churchservices.tv\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.14"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+<meta content="Church Services v.1.0.0" name="generator" /><style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='passster-css-css' href='https://www.churchservices.tv/wp-content/plugins/content-protector/assets/public/passster.min.css?ver=4.9.14' type='text/css' media='all' />
+<link rel='stylesheet' id='cookie-notice-front-css' href='https://www.churchservices.tv/wp-content/plugins/cookie-notice/css/front.min.css?ver=4.9.14' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css-css' href='https://www.churchservices.tv/wp-content/plugins/cstv/css/bootstrap.css?ver=1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-datepicker-css' href='https://www.churchservices.tv/wp-content/plugins/cstv/css/bootstrap-datepicker3.min.css?ver=1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='video-js-css-css' href='https://vjs.zencdn.net/7.1.0/video-js.css?ver=4.9.14' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-css-css' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css?ver=4.9.14' type='text/css' media='all' />
+<link rel='stylesheet' id='jquery-ui-autocomplete-css' href='https://www.churchservices.tv/wp-includes/css/jquery-ui-dialog.css?ver=4.9.14' type='text/css' media='all' />
+<link rel='stylesheet' id='widgetopts-styles-css' href='https://www.churchservices.tv/wp-content/plugins/widget-options/assets/css/widget-options.css' type='text/css' media='all' />
+<link rel='stylesheet' id='divi-fonts-css' href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&#038;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='divi-style-css' href='https://www.churchservices.tv/wp-content/themes/cstv/style.css?ver=3.0.106' type='text/css' media='all' />
+<link rel='stylesheet' id='et-builder-googlefonts-cached-css' href='https://fonts.googleapis.com/css?family=Varela+Round%3Aregular&#038;ver=4.9.14#038;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css' href='https://www.churchservices.tv/wp-includes/css/dashicons.min.css?ver=4.9.14' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.churchservices.tv/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://www.churchservices.tv/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://www.churchservices.tv/wp-content/plugins/content-protector/assets/public/cookie.min.js?ver=4.9.14'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var passster_cookie = {"url":"https:\/\/www.churchservices.tv\/wp-admin\/admin-ajax.php","days":"2","use_cookie":"on"};
+var passster_cookie = {"url":"https:\/\/www.churchservices.tv\/wp-admin\/admin-ajax.php","days":"2","use_cookie":"on"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.churchservices.tv/wp-content/plugins/content-protector/assets/public/passster-cookie.min.js?ver=4.9.14'></script>
+<script type='text/javascript' src='https://www.churchservices.tv/wp-content/plugins/cstv/js/video.min.js?ver=4.9.14'></script>
+<link rel='https://api.w.org/' href='https://www.churchservices.tv/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.churchservices.tv/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.churchservices.tv/wp-includes/wlwmanifest.xml" />
+<meta name="generator" content="WordPress 4.9.14" />
+<link rel='shortlink' href='https://www.churchservices.tv/?p=128' />
+<link rel="alternate" type="application/json+oembed" href="https://www.churchservices.tv/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.churchservices.tv%2Fchurches%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.churchservices.tv/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.churchservices.tv%2Fchurches%2F&#038;format=xml" />
+<style>
+		.passster-form {
+			background: #F9F9F9;
+			padding: 10px;
+			margin: 0px;
+		}
+		.passster-form h4 {
+			font-size: 20px;
+			font-weight: 700;
+			color: #4998b3;
+		}
+		.passster-form p {
+			font-size: 14px;
+			font-weight: 400;
+			color: #000000;
+		}
+		.passster-form .error {
+			font-size: 14px;
+			font-weight: 400;
+			color: #FFFFFF;
+			background: #CC4C43;
+		}
+		.passster-form #passster_submit {
+			color: #FFFFFF;
+			background: #4998b3;
+		}
+		.passster-form #passster_submit:hover {
+			color: #FFFFFF;
+			background: #aa1100;
+		}                
+		</style>
+<script type='text/javascript'>
+ jQuery(document).ready(function(){  
+       // CHURCH AUTOCOMPLETE SEARCH
+        jQuery('#header-find-church-autocomplete').autocomplete({
+            source: function(request, response) {
+                jQuery.ajax({
+                    url: '/index.php',
+                    data:  '?find_church=1&keyword=' + request.term,
+                    success: function( data ) {
+                        //alert(data);
+                        response( JSON.parse(data) );
+                    },
+                    error: function() {
+                        //var error = {church: 'No results found', slug: '#'};
+                       // response( JSON.parse(error) );
+                        //response('[{"church":"No2 results found","slug":"#"}]');
+                        response([]);
+                    },
+                });
+                
+            },
+            minLength: 2,
+            select: function( event, ui ) {
+                if (ui.item.slug != '#') {
+                    location.href = 'https://www.churchservices.tv/' + ui.item.slug;
+                }
+            },
+            focus: function( event, ui ) {
+                if(ui.item.church !== 'No results found') {
+                    jQuery('#header-find-church-autocomplete').val( ui.item.church );
+                }
+                return false;
+            }
+        }).autocomplete( 'instance' )._renderItem = function( ul, item ) {
+            return jQuery( '<li>' )
+                .append( '<a>' + item.church + '</a>' )
+                .appendTo( ul );
+        };
+        
+  });
+  </script>
+<script type='text/javascript'>
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-695498-6']);
+            _gaq.push(['_setDomainName', '.churchservices.tv']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /><link rel="shortcut icon" href="https://www.churchservices.tv/wp-content/uploads/2018/09/favicon.ico" /><style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #f2f2f2; }
+</style>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous" /><style id="et-divi-customizer-global-cached-inline-styles">body,.et_pb_column_1_2 .et_quote_content blockquote cite,.et_pb_column_1_2 .et_link_content a.et_link_main_url,.et_pb_column_1_3 .et_quote_content blockquote cite,.et_pb_column_3_8 .et_quote_content blockquote cite,.et_pb_column_1_4 .et_quote_content blockquote cite,.et_pb_blog_grid .et_quote_content blockquote cite,.et_pb_column_1_3 .et_link_content a.et_link_main_url,.et_pb_column_3_8 .et_link_content a.et_link_main_url,.et_pb_column_1_4 .et_link_content a.et_link_main_url,.et_pb_blog_grid .et_link_content a.et_link_main_url,body .et_pb_bg_layout_light .et_pb_post p,body .et_pb_bg_layout_dark .et_pb_post p{font-size:16px}.et_pb_slide_content,.et_pb_best_value{font-size:18px}body{color:#000000}h1,h2,h3,h4,h5,h6{color:#f5511e}.woocommerce #respond input#submit,.woocommerce-page #respond input#submit,.woocommerce #content input.button,.woocommerce-page #content input.button,.woocommerce-message,.woocommerce-error,.woocommerce-info{background:#f5511e!important}#et_search_icon:hover,.mobile_menu_bar:before,.mobile_menu_bar:after,.et_toggle_slide_menu:after,.et-social-icon a:hover,.et_pb_sum,.et_pb_pricing li a,.et_pb_pricing_table_button,.et_overlay:before,.entry-summary p.price ins,.woocommerce div.product span.price,.woocommerce-page div.product span.price,.woocommerce #content div.product span.price,.woocommerce-page #content div.product span.price,.woocommerce div.product p.price,.woocommerce-page div.product p.price,.woocommerce #content div.product p.price,.woocommerce-page #content div.product p.price,.et_pb_member_social_links a:hover,.woocommerce .star-rating span:before,.woocommerce-page .star-rating span:before,.et_pb_widget li a:hover,.et_pb_filterable_portfolio .et_pb_portfolio_filters li a.active,.et_pb_filterable_portfolio .et_pb_portofolio_pagination ul li a.active,.et_pb_gallery .et_pb_gallery_pagination ul li a.active,.wp-pagenavi span.current,.wp-pagenavi a:hover,.nav-single a,.posted_in a{color:#f5511e}.et_pb_contact_submit,.et_password_protected_form .et_submit_button,.et_pb_bg_layout_light .et_pb_newsletter_button,.comment-reply-link,.form-submit .et_pb_button,.et_pb_bg_layout_light .et_pb_promo_button,.et_pb_bg_layout_light .et_pb_more_button,.woocommerce a.button.alt,.woocommerce-page a.button.alt,.woocommerce button.button.alt,.woocommerce-page button.button.alt,.woocommerce input.button.alt,.woocommerce-page input.button.alt,.woocommerce #respond input#submit.alt,.woocommerce-page #respond input#submit.alt,.woocommerce #content input.button.alt,.woocommerce-page #content input.button.alt,.woocommerce a.button,.woocommerce-page a.button,.woocommerce button.button,.woocommerce-page button.button,.woocommerce input.button,.woocommerce-page input.button,.et_pb_contact p input[type="checkbox"]:checked+label i:before,.et_pb_bg_layout_light.et_pb_module.et_pb_button{color:#f5511e}.footer-widget h4{color:#f5511e}.et-search-form,.nav li ul,.et_mobile_menu,.footer-widget li:before,.et_pb_pricing li:before,blockquote{border-color:#f5511e}.et_pb_counter_amount,.et_pb_featured_table .et_pb_pricing_heading,.et_quote_content,.et_link_content,.et_audio_content,.et_pb_post_slider.et_pb_bg_layout_dark,.et_slide_in_menu_container,.et_pb_contact p input[type="radio"]:checked+label i:before{background-color:#f5511e}.container,.et_pb_row,.et_pb_slider .et_pb_container,.et_pb_fullwidth_section .et_pb_title_container,.et_pb_fullwidth_section .et_pb_title_featured_container,.et_pb_fullwidth_header:not(.et_pb_fullscreen) .et_pb_fullwidth_header_container{max-width:1280px}.et_boxed_layout #page-container,.et_fixed_nav.et_boxed_layout #page-container #top-header,.et_fixed_nav.et_boxed_layout #page-container #main-header,.et_boxed_layout #page-container .container,.et_boxed_layout #page-container .et_pb_row{max-width:1440px}a{color:#f5511e}#top-header,#et-secondary-nav li ul{background-color:#57565b}.et_header_style_centered .mobile_nav .select_page,.et_header_style_split .mobile_nav .select_page,.et_nav_text_color_light #top-menu>li>a,.et_nav_text_color_dark #top-menu>li>a,#top-menu a,.et_mobile_menu li a,.et_nav_text_color_light .et_mobile_menu li a,.et_nav_text_color_dark .et_mobile_menu li a,#et_search_icon:before,.et_search_form_container input,span.et_close_search_field:after,#et-top-navigation .et-cart-info{color:#000000}.et_search_form_container input::-moz-placeholder{color:#000000}.et_search_form_container input::-webkit-input-placeholder{color:#000000}.et_search_form_container input:-ms-input-placeholder{color:#000000}#top-menu li a{font-size:16px}body.et_vertical_nav .container.et_search_form_container .et-search-form input{font-size:16px!important}#top-menu li a,.et_search_form_container input{font-weight:bold;font-style:normal;text-transform:uppercase;text-decoration:none}.et_search_form_container input::-moz-placeholder{font-weight:bold;font-style:normal;text-transform:uppercase;text-decoration:none}.et_search_form_container input::-webkit-input-placeholder{font-weight:bold;font-style:normal;text-transform:uppercase;text-decoration:none}.et_search_form_container input:-ms-input-placeholder{font-weight:bold;font-style:normal;text-transform:uppercase;text-decoration:none}#top-menu li.current-menu-ancestor>a,#top-menu li.current-menu-item>a,.et_color_scheme_red #top-menu li.current-menu-ancestor>a,.et_color_scheme_red #top-menu li.current-menu-item>a,.et_color_scheme_pink #top-menu li.current-menu-ancestor>a,.et_color_scheme_pink #top-menu li.current-menu-item>a,.et_color_scheme_orange #top-menu li.current-menu-ancestor>a,.et_color_scheme_orange #top-menu li.current-menu-item>a,.et_color_scheme_green #top-menu li.current-menu-ancestor>a,.et_color_scheme_green #top-menu li.current-menu-item>a{color:#f5511e}#footer-widgets .footer-widget a,#footer-widgets .footer-widget li a,#footer-widgets .footer-widget li a:hover{color:#ffffff}.footer-widget{color:#ffffff}#main-footer .footer-widget h4{color:#f5511e}.footer-widget li:before{border-color:#f5511e}#footer-widgets .footer-widget li:before{top:10.6px}#footer-info,#footer-info a{color:#ffffff}h1,h2,h3,h4,h5,h6,.et_quote_content blockquote p,.et_pb_slide_description .et_pb_slide_title{font-weight:bold;font-style:normal;text-transform:uppercase;text-decoration:none}@media only screen and (min-width:981px){.et_header_style_left #et-top-navigation,.et_header_style_split #et-top-navigation{padding:81px 0 0 0}.et_header_style_left #et-top-navigation nav>ul>li>a,.et_header_style_split #et-top-navigation nav>ul>li>a{padding-bottom:81px}.et_header_style_split .centered-inline-logo-wrap{width:161px;margin:-161px 0}.et_header_style_split .centered-inline-logo-wrap #logo{max-height:161px}.et_pb_svg_logo.et_header_style_split .centered-inline-logo-wrap #logo{height:161px}.et_header_style_centered #top-menu>li>a{padding-bottom:29px}.et_header_style_slide #et-top-navigation,.et_header_style_fullscreen #et-top-navigation{padding:72px 0 72px 0!important}.et_header_style_centered #main-header .logo_container{height:161px}#logo{max-height:93%}.et_pb_svg_logo #logo{height:93%}.et-fixed-header#top-header,.et-fixed-header#top-header #et-secondary-nav li ul{background-color:#57565b}.et-fixed-header #top-menu a,.et-fixed-header #et_search_icon:before,.et-fixed-header #et_top_search .et-search-form input,.et-fixed-header .et_search_form_container input,.et-fixed-header .et_close_search_field:after,.et-fixed-header #et-top-navigation .et-cart-info{color:#000000!important}.et-fixed-header .et_search_form_container input::-moz-placeholder{color:#000000!important}.et-fixed-header .et_search_form_container input::-webkit-input-placeholder{color:#000000!important}.et-fixed-header .et_search_form_container input:-ms-input-placeholder{color:#000000!important}.et-fixed-header #top-menu li.current-menu-ancestor>a,.et-fixed-header #top-menu li.current-menu-item>a{color:#f5511e!important}}@media only screen and (min-width:1600px){.et_pb_row{padding:32px 0}.et_pb_section{padding:64px 0}.single.et_pb_pagebuilder_layout.et_full_width_page .et_post_meta_wrapper{padding-top:96px}.et_pb_section.et_pb_section_first{padding-top:inherit}.et_pb_fullwidth_section{padding:0}}h1,h2,h3,h4,h5,h6{font-family:'Varela Round',Helvetica,Arial,Lucida,sans-serif}#main-header,#et-top-navigation{font-family:'Varela Round',Helvetica,Arial,Lucida,sans-serif}</style></head>
+<body class="page-template page-template-page-template-churches page-template-page-template-churches-php page page-id-128 custom-background cookies-not-set et_pb_button_helper_class et_fixed_nav et_show_nav et_cover_background et_secondary_nav_enabled et_pb_gutter windows et_pb_gutters3 et_primary_nav_dropdown_animation_fade et_secondary_nav_dropdown_animation_fade et_pb_footer_columns3 et_header_style_left et_pb_pagebuilder_layout et_right_sidebar et_divi_theme et_minified_js et_minified_css">
+<div id="page-container">
+<div id="top-header">
+<div class="container clearfix">
+
+<div id="et-secondary-menu">
+<span class="top-header-search">
+Find a Church: <input id="header-find-church-autocomplete" type="text" name="church-search">
+</span>
+<span class="top-header-email"><a href="/cdn-cgi/l/email-protection#1c75727a735c7f74696e7f746f796e6a757f796f32686a"><i class="fas fa-envelope"></i> <span class="__cf_email__" data-cfemail="bbd2d5ddd4fbd8d3cec9d8d3c8dec9cdd2d8dec895cfcd">[email&#160;protected]</span></a> </span>
+<span class="top-header-follow"> Follow Us:</span><ul class="et-social-icons">
+<li class="et-social-icon et-social-facebook">
+<a href="https://www.facebook.com/pages/Church-Services-TV/157606014288500" class="icon">
+<span>Facebook</span>
+</a>
+</li>
+<li class="et-social-icon et-social-twitter">
+<a href="https://twitter.com/ChurchServiceTV" class="icon">
+<span>Twitter</span>
+</a>
+</li>
+</ul> </div> 
+</div> 
+</div> 
+<header id="main-header" data-height-onload="161">
+<div class="container clearfix et_menu_container">
+<div class="logo_container">
+<span class="logo_helper"></span>
+<a href="https://www.churchservices.tv/">
+<img src="https://www.churchservices.tv/wp-content/uploads/2018/09/cstv-logo2.png" alt="ChurchServices.tv live mass and services from Churches in the UK and Ireland" id="logo" data-height-percentage="93" />
+</a>
+</div>
+<div id="et-top-navigation" data-height="161" data-fixed-height="40">
+<nav id="top-menu-nav">
+<ul id="top-menu" class="nav"><li id="menu-item-155" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-155"><a href="https://www.churchservices.tv/">Home</a></li>
+<li id="menu-item-154" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-128 current_page_item menu-item-154"><a href="https://www.churchservices.tv/churches/">Churches</a></li>
+<li id="menu-item-153" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-153"><a href="https://www.churchservices.tv/timetable/">Schedule</a></li>
+<li id="menu-item-152" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-152"><a href="https://www.churchservices.tv/whats-on-now/">What&#8217;s On Now</a></li>
+<li id="menu-item-151" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-151"><a href="https://www.churchservices.tv/special-events/">Special Events</a></li>
+<li id="menu-item-149" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-149"><a href="https://www.churchservices.tv/about-us/">About</a></li>
+<li id="menu-item-148" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-148"><a href="https://www.churchservices.tv/contact-us/">Contact</a></li>
+</ul> </nav>
+<div id="et_mobile_nav_menu">
+<div class="mobile_nav closed">
+<span class="select_page">Select Page</span>
+<span class="mobile_menu_bar mobile_menu_bar_toggle"></span>
+</div>
+</div> </div> 
+</div> 
+<div class="et_search_outer">
+<div class="container et_search_form_container">
+<form role="search" method="get" class="et-search-form" action="https://www.churchservices.tv/">
+<input type="search" class="et-search-field" placeholder="Search &hellip;" value="" name="s" title="Search for:" /> </form>
+<span class="et_close_search_field"></span>
+</div>
+</div>
+</header> 
+<div id="et-main-area">
+<div id="main-content">
+<div class="container">
+<div id="content-area" class=" clearfix">
+<div class="et_pb_extra_column_main">
+<article id="post-140" class="page type-page status-publish hentry">
+<div class="h1-title">
+<h1 class="">Churches</h1>
+<div class="entry-title-divider text-center"><img src="/wp-content/uploads/2018/04/divider.png" alt=""></div>
+<div class="container-fluid country-nav">
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
+<div class="county "><a href="/churches">All</a></div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
+<div class="county active"><a href="/country/ireland">Ireland</a></div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
+<div class="county "><a href="/country/northern-ireland">N. Ireland</a></div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
+<div class="county "><a href="/country/england">England</a></div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
+<div class="county "><a href="/country/scotland">Scotland</a></div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
+<div class="county "><a href="/country/usa">USA</a></div>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
+<div class="county"><a href="/radio-stations">Radio Stations</a></div>
+</div>
+</div>
+</div>
+<div class="container-fluid" style="margin-top: 60px;">
+<div class="row">
+<div class="col-sm-3">
+<div class="county-sidebar accordion panel-group" id="accordion">
+<div class="panel-group" id="accordion">
+<div class="panel panel-default">
+<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapse1">
+<h4 class="panel-title">
+<span class="accordion-toggle">
+Ireland
+</span><i class="indicator glyphicon glyphicon-chevron-down chevron1 pull-right"></i>
+</h4>
+</div>
+<div id="collapse1" class="panel-collapse in collapse">
+<div class="panel-body">
+<a class="" href="/country/ireland">All</a>
+<a class="" href="/county/carlow">Carlow</a><a class="" href="/county/cavan">Cavan</a><a class="" href="/county/clare">Clare</a><a class="" href="/county/cork">Cork</a><a class="" href="/county/donegal">Donegal</a><a class="" href="/county/dublin">Dublin</a><a class="" href="/county/galway">Galway</a><a class="" href="/county/kerry">Kerry</a><a class="" href="/county/kildare">Kildare</a><a class="" href="/county/kilkenny">Kilkenny</a><a class="" href="/county/limerick">Limerick</a><a class="" href="/county/longford">Longford</a><a class="" href="/county/louth">Louth</a><a class="" href="/county/mayo">Mayo</a><a class="" href="/county/meath">Meath</a><a class="" href="/county/monaghan">Monaghan</a><a class="" href="/county/offaly">Offaly</a><a class="" href="/county/sligo">Sligo</a><a class="" href="/county/tipperary">Tipperary</a><a class="" href="/county/waterford">Waterford</a><a class="" href="/county/westmeath">Westmeath</a><a class="" href="/county/wexford">Wexford</a><a class="" href="/county/wicklow">Wicklow</a></div></div></div></div>
+</div>
+</div>
+<div class="col-sm-9">
+
+<div class="row church-summary-container auto-clear">
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="https://t4p7h5h4.stackpathcdn.com/CSTV-HTTP/abbeyfealeparish.stream/playlist.m3u8"><img data-src="https://www.churchservices.tv/wp-content/uploads/2018/11/abbeyfealeparish-300x225.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="https://t4p7h5h4.stackpathcdn.com/CSTV-HTTP/abbeyfealeparish.stream/playlist.m3u8">Abbeyfeale, Church of the Assumption</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/creidim"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/04/ACN-new-1024x578.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/creidim">ACN Ireland - The Creidim Centre </a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/ashbourne"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/10/churchashbourne-300x169.jpeg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/ashbourne">Ashbourne</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/athlone"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/01/churchathlone-300x225.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/athlone">Athlone</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/athlonestmarys"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/04/St-Marys-Church-Athlone-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/athlonestmarys">Athlone, St Marys</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/athy"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/12/church-athy-300x169.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/athy">Athy, St Michael&#039;s</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+ <div class="church-container">
+<div class="church-image"><a href="/stannesbailieborough"><img data-src="https://www.churchservices.tv/wp-content/uploads/2018/12/bailieboro-stannes-church-300x225.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/stannesbailieborough">Bailieborough, St. Anne&#039;s </a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/balally"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/03/Live-Stream-Mary-Baby-Jesus-300x139.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/balally">Balally, Dublin</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/ballingarry"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/05/church-ballingarry2-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/ballingarry">Ballingarry</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/ballyfermotassumption"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/09/church-ballyfermot-300x169.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/ballyfermotassumption">Ballyfermot, Assumption</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/ballyfermot"><img data-src="https://www.churchservices.tv/wp-content/uploads/2018/12/ballyfermot-stmathews-logo3-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/ballyfermot">Ballyfermot, St Matthews</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/stmarysballygunner"><img data-src="/imagecache/large/stmarysballygunner-1458642846.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/stmarysballygunner">Ballygunner, St. Mary&#039;s </a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/glasnevin"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/04/church-ballymun-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/glasnevin">Ballymun Road, Glasnevin</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/stpatricksballyshannon"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/01/stpatricksballyshannon-300x225.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/stpatricksballyshannon">Ballyshannon, St. Patrick&#039;s</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/banagher"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/03/strynaghs-400x400-300x300.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/banagher">Banagher, St. Rynagh’s</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/bantry"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/04/cork-bantry-2-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/bantry">Bantry</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/bawnboy"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/03/church-bawnboy-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/bawnboy">Bawnboy</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/beauparc"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/04/church-beauparc-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/beauparc">Beauparc, Meath</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/blackrock"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/03/church-blackrock-dublin-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/blackrock">Blackrock, Dublin</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/blarney"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/02/rc-church-blarney-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/blarney">Blarney</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/boherbue"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/03/church-boherbue-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/boherbue">Boherbue</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/bohermeen"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/04/IMG_0682-300x225.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/bohermeen">Bohermeen Parish</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/christchurchbray"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/04/church-braycc-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/christchurchbray">Bray, Christ Church</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/brayqueenofpeace"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/05/church-brayqueen-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/brayqueenofpeace">Bray, Queen of Peace</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/braystpeters"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/05/braychurchstpeters169-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/braystpeters">Bray, St Peter&#039;s</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/burt"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/04/church-burtdonegal-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/burt">Burt</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/cabinteely"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/01/churchcabinteely-300x225.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/cabinteely">Cabinteely</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/caherdaniel"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/04/church-caherdaniel-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/caherdaniel">Caherdaniel, Kerry</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/cahersiveen"><img data-src="https://www.churchservices.tv/wp-content/uploads/2018/11/cahersiveen-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/cahersiveen">Cahersiveen</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/calryparish"><img data-src="/imagecache/large/calryparish-1429014091.JPG" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/calryparish">Calry</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/castleisland"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/03/IMG_0041-002-225x300.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/castleisland">Castleisland</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/castleknock"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/04/church2-1-1024x576.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/castleknock">Castleknock, Dublin</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/cavancathedral"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/03/church-cavan-cathedral-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/cavancathedral">Cavan Cathedral</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/claneparish"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/01/PA252065Copy-300x225.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/claneparish">Clane</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/clarendonstreet"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/09/church-stteresas-clarendon-dublin-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/clarendonstreet">Clarendon Street, St Teresa&#039;s, Dublin</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/cloghan"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/04/home-cloghan-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/cloghan">Cloghan, St. Mary&#039;s Chuch</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/sacredheartclones"><img data-src="/imagecache/large/sacredheartclones-1423836073.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/sacredheartclones">Clones, Sacred Heart </a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/clonmelpeterpaul"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/04/IMG_2049-300x225.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+ <div class="church-title"><a href="/clonmelpeterpaul">Clonmel, Ss Peter &amp; Pauls </a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/clonmel"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/04/church-clonmel-300x169.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/clonmel">Clonmel, St. Mary&#039;s</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/clontarfstjohn"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/04/20200414_143436-2-1024x576.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/clontarfstjohn">Clontarf, Church of St John the Baptist</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/stanthonys"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/01/stanthclon-300x225.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/stanthonys">Clontarf, St. Anthony&#039;s </a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/cockhill"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/03/Cockhil-St-Marys-Chapel-2-300x168.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/cockhill">Cockhill, Buncrana, St. Mary&#039;s</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/coolock"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/10/church-stbrendans-coolock-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/coolock">Coolock, St. Brendan&#039;s</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/augustinians"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/02/cork-staugustines-300x169.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/augustinians">Cork, Augustinians </a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/sacredheartcork"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/02/cork-sacred-heart-candles-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/sacredheartcork">Cork, MSC Church </a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/dalkey"><img data-src="https://www.churchservices.tv/wp-content/uploads/2018/12/dalkey-assumption-300x169.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/dalkey">Dalkey</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/dolphinsbarn"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/02/DB-4-300x217.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/dolphinsbarn">Dolphin&#039;s Barn</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/donnybrook"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/04/Image_2_7-1.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/donnybrook">Donnybrook Parish</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/lourdesdrogheda"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/03/church-droghedalourdes-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/lourdesdrogheda">Drogheda, Lourdes</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/drogheda"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/03/church-drogheda-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/drogheda">Drogheda, St Peters</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/dublinstjames"><img data-src="https://www.churchservices.tv/wp-content/uploads/2018/11/stjamesdublin-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/dublinstjames">Dublin 8, St James</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/johnslane"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/06/church-stjohns-lane-dublin2-300x225.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/johnslane">Dublin, Augustinians </a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/dundalk"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/03/Redemptorist-Church-CMYK-4-300x200.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/dundalk">Dundalk, St Josephs</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/dunderry"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/03/churches-dunderry-3-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/dunderry">Dunderry, Kilbride, Robinstown </a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/dundrumparish"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/03/Cover-shot-4-1024x683.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/dundrumparish">Dundrum</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/enniscorthycathedral"><img data-src="https://www.churchservices.tv/wp-content/uploads/2018/11/st-aidans-300x225.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/enniscorthycathedral">Enniscorthy Cathedral</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/fethard"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/03/church-fethard-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/fethard">Fethard</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/foxrock"><img data-src="https://www.churchservices.tv/wp-content/uploads/2018/11/foxrock2-300x169.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/foxrock">Foxrock</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/glencomeragh"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/03/Glencomeragh-1-300x120.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/glencomeragh">Glencomeragh House</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/glenstal"><img data-src="https://www.churchservices.tv/wp-content/uploads/2018/11/glenstal-abbey-inside-300x169.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/glenstal">Glenstal Abbey</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/haddingtonroad"><img data-src="/imagecache/large/haddingtonroad-1488900386.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/haddingtonroad">Haddington Road</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/haggardstown"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/03/IMG_0110-300x169.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/haggardstown">Haggardstown, Louth</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/ionaroad"><img data-src="https://www.churchservices.tv/wp-content/uploads/2018/12/iona-300x169.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/ionaroad">Iona Road, St. Columba&#039;s</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/johnstownourlady"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/04/JohnstownParish16.9-300x169.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/johnstownourlady">Johnstown Parish</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/kanturk"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/05/church-kanturk-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/kanturk">Kanturk, Cork</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/kentstown"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/04/church-kentstown-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/kentstown">Kentstown, Meath</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/killucan"><img data-src="/imagecache/large/killucan-1421920364.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/killucan">Killucan, St. Camillus</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/holyfamilykiltimagh"><img data-src="/imagecache/large/holyfamilykiltimagh-1423835246.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/holyfamilykiltimagh">Kiltimagh, Holy Family </a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/kinsale"><img data-src="/imagecache/large/kinsale-1473245020.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/kinsale">Kinsale Parish</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/kinsalecarmelites"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/04/church-kinsalecarm-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/kinsalecarmelites">Kinsale, Carmelites</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/kiskeam"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/03/IMG_20200316_125407-225x300.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/kiskeam">Kiskeam</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/lahinch"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/04/church-lahinch2-300x169.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/lahinch">Lahinch</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/laurellodge"><img data-src="https://www.churchservices.tv/wp-content/uploads/2018/12/laurellodge-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/laurellodge">Laurel Lodge</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/letterkenny"><img data-src="https://www.churchservices.tv/wp-content/uploads/2018/11/lk-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/letterkenny">Letterkenny</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/augustinianslimerick"><img data-src="/imagecache/large/augustinianslimerick-1423832857.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/augustinianslimerick">Limerick, Augustinians</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/limerickstmarys"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/04/cathedral-lim-marys-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/limerickstmarys">Limerick, Saint Mary&#039;s Cathedral</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/limerickcathedral"><img data-src="/imagecache/large/limerickcathedral-1530017349.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/limerickcathedral">Limerick, St John&#039;s Cathedral</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/littleton"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/07/photolittletonchurch-1-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/littleton">Littleton</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/stmelscathedral"><img data-src="/imagecache/large/stmelscathedral-1421921713.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/stmelscathedral">Longford, St. Mel&#039;s Cathedral</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/loughrea"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/04/fc34f61d23b74be53ee07d469bd32064_XL-Cropped-1-300x169.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/loughrea">Loughrea Cathedral</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/macroom"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/04/church-macroom-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/macroom">Macroom, Cork</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/mallow"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/02/churchstmarysmallow-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/mallow">Mallow</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/maynoothparish"><img data-src="/imagecache/large/maynoothparish-1421858807.JPG" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/maynoothparish">Maynooth Parish</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/miltownmalbay"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/05/church-miltownmalbay-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/miltownmalbay">Miltown Malbay, Clare</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/mitchelstown"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/02/mitchelstown-300x225.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/mitchelstown">Mitchelstown Parish</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/mooncoinparish"><img data-src="/imagecache/large/mooncoinparish-1423833270.JPG" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/mooncoinparish">Mooncoin Parish</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/mountargus"><img data-src="/imagecache/large/mountargus-1423841051.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/mountargus">Mount Argus</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/alphonsus"><img data-src="/imagecache/large/alphonsus-1513698314.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/alphonsus">Mount St Alphonsus</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/mullagh"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/04/church-mullagh-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/mullagh">Mullagh, Clare</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/navan"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/05/53C15189-5B56-44C4-91C2-818A5320576F-300x169.jpeg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/navan">Navan</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/navanroad"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/05/church-navanroad-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/navanroad">Navan Road, Dublin</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/newtowncunningham"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/03/Screenshot-2020-03-28-at-12.09.34-300x167.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/newtowncunningham">Newtowncunningham</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/oristown"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/05/Oristown-Parish-1-300x160.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/oristown">Oristown Parish</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/dunboyne"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/05/Dunboyne-Parish-2-300x171.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/dunboyne">Parish of Dunboyne and Kilbride</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/phibsboro"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/10/stpeters-phibsborough-dublin-300x169.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/phibsboro">Phibsboro</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/piltown"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/06/church-piltown-300x169.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/piltown">Piltown</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/portmagee"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/05/D3F6E780-B993-43E2-B4CB-433794FD1D9D-300x215.jpeg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/portmagee">Portmagee, Kerry</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/raheen"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/03/church-raheen-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/raheen">Raheen</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/rahenyparish"><img data-src="/imagecache/large/rahenyparish-1421919300.jpeg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/rahenyparish">Raheny Parish</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/rathfarnham"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/11/church-annunciation-rathfarnham-300x169.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/rathfarnham">Rathfarnham</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/redemptoristines"><img data-src="https://www.churchservices.tv/wp-content/uploads/2018/11/rednuns-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/redemptoristines">Redemptoristines</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/redemptorists"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/05/Redemptorists-Scala-2-300x180.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/redemptorists">Redemptorists Ireland</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/rialto"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/01/Church-new-21-copy-2-300x204.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/rialto">Rialto</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/saggart"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/12/church-saggart-dublin-300x169.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/saggart">Saggart</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/sandyford"><img data-src="/imagecache/large/sandyford-1488799592.jpeg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/sandyford">Sandyford Parish</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/shankill"><img data-src="/imagecache/large/shankill-1421920055.JPG" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/shankill">Shankill, St. Anne&#039;s Church</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/sligocathedral"><img data-src="/imagecache/large/sligocathedral-1499847789.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/sligocathedral">Sligo Cathedral</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/smablackrock"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/02/churchsmablackrockcork-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/smablackrock">SMA Blackrock</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/smawilton"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/04/Church-Easter-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/smawilton">SMA Wilton, St Joseph’s, Cork</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/tullycorbet"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/04/Tullycorbet-Ballybay-300x177.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/tullycorbet">St Patricks Church Ballybay</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/stpatrickscathedral"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/03/Cathedral-Chancel-2-300x199.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/stpatrickscathedral">St. Patrick&#039;s Cathedral</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/strandhill"><img data-src="/imagecache/large/strandhill-1423836687.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/strandhill">Strandhill, Sligo</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/swinford"><img data-src="/imagecache/large/swinford-1421920935.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/swinford">Swinford, Mayo</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/tallaght"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/11/church-tallaght-st-marys-priory-dublin-300x169.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/tallaght">Tallaght, St Mary&#039;s</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/piusx"><img data-src="/imagecache/large/piusx-1421920302.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/piusx">Templeogue, St Pius X</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/terenure"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/04/church-terenure-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/terenure">Terenure, </a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/tralee"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/05/DSC4737-300x200.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/tralee">Tralee, St Johns</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/tullow"><img data-src="/imagecache/large/tullow-1499693884.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/tullow">Tullow, Holy Rosary</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/twomileborris"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/03/church-borris-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/twomileborris">Two Mile Boris</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/walkinstown"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/06/church-walkinstown-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/walkinstown">Walkinstown Parish</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/stjosephswaterford"><img data-src="/imagecache/large/stjosephswaterford-1458122959.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/stjosephswaterford">Waterford</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/waterville"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/05/church-waterville2-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/waterville">Waterville</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/whitefriarstreet"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/09/church-whitefriar-street-dublin-300x225.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/whitefriarstreet">Whitefriar Street</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/whitehall"><img data-src="https://www.churchservices.tv/wp-content/uploads/2019/03/church-whitehall-300x169.png" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/whitehall">Whitehall</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/stpatrickswicklow"><img data-src="/imagecache/large/stpatrickswicklow-1421921648.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/stpatrickswicklow">Wicklow, St. Patrick&#039;s Church</a></div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<div class="church-container">
+<div class="church-image"><a href="/yellowwalls"><img data-src="https://www.churchservices.tv/wp-content/uploads/2020/04/Church-Photo-Evening-April-2020-4-300x146.jpg" class="lazy-image img-responsive church-image" /><br /></a></div>
+<div class="church-title"><a href="/yellowwalls">Yellow Walls, Dublin</a></div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+</div>
+</div>
+</div>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+jQuery(document).ready(function(){
+    jQuery('.lazy-image').lazy({
+        scrollDirection: 'vertical',
+        effect: 'fadeIn',
+        effectTime: 3000,
+        visibleOnly: true,
+        beforeLoad: function(element){
+              //console.log('image "' + element.data('src') + '" is about to be loaded');
+          },
+       afterLoad: function(element) {
+              //console.log('image "' + element.data('src') + '" was loaded successfully');
+          }
+
+     });
+});
+    </script> </div>
+</div>
+</article>
+</div> 
+</div> 
+</div> 
+<span class="et_pb_scroll_top et-pb-icon"></span>
+<footer id="main-footer">
+<div class="container">
+<div id="footer-widgets" class="clearfix">
+<div class="footer-widget"><div id="nav_menu-3" class="widget fwidget et_pb_widget widget_nav_menu"><h4 class="title">Quick Links</h4><div class="menu-footer-menu-container"><ul id="menu-footer-menu" class="menu"><li id="menu-item-165" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-128 current_page_item menu-item-165"><a href="https://www.churchservices.tv/churches/">Churches</a></li>
+<li id="menu-item-164" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-164"><a href="https://www.churchservices.tv/timetable/">Schedule</a></li>
+<li id="menu-item-163" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-163"><a href="https://www.churchservices.tv/whats-on-now/">What&#8217;s On Now</a></li>
+<li id="menu-item-162" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-162"><a href="https://www.churchservices.tv/special-events/">Special Events</a></li>
+<li id="menu-item-160" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-160"><a href="https://www.churchservices.tv/about-us/">About Us</a></li>
+<li id="menu-item-1069" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1069"><a href="https://www.churchservices.tv/faqs/">FAQ&#8217;s</a></li>
+<li id="menu-item-157" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-157"><a href="https://www.churchservices.tv/contact-us/">Contact Us</a></li>
+</ul></div></div> </div> <div class="footer-widget"><div id="custom_html-2" class="widget_text widget fwidget et_pb_widget widget_custom_html"><h4 class="title">Contact Info</h4><div class="textwidget custom-html-widget"><div class="row">
+<div class="col-xs-2"><i class="fas fa-map-marker-alt"></i></div>
+<div class="col-xs-10">
+<div class="footer-contact-info">
+1st Floor Office Suite <br />
+21 Dublin Road<br />
+Bray<br />
+Co. Wicklow<br />
+Ireland A98 Y6YO</div>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-2"><i class="fas fa-phone"></i></div>
+<div class="col-xs-10">
+<div class="footer-contact-info">
+<a href="tel:+442038088099">+44 203 808 8099 (UK/NI)</a><br />
+<a href="tel:35316077150">+353 1 607 7150</a>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-2"><i class="fas fa-envelope"></i></div>
+<div class="col-xs-10">
+<div class="footer-contact-info">
+<a href="/cdn-cgi/l/email-protection#c3aaada5ac83a0abb6b1a0abb0a6b1b5aaa0a6b0edb7b5">
+<span class="__cf_email__" data-cfemail="325b5c545d72515a4740515a415740445b5157411c4644">[email&#160;protected]</span>
+</a>
+</div>
+</div>
+</div>
+<h4 class="title">
+Follow Us
+</h4>
+<div class="row">
+<div class="col-xs-2">
+<a href="https://www.facebook.com/Church-Services-TV-157606014288500/" target="_blank"><i class="fab fa-facebook"></i></a>
+</div>
+<div class="col-xs-2">
+<a href="https://twitter.com/ChurchServiceTV" target="_blank"><i class="fab fa-twitter"></i></a>
+</div>
+</div></div></div> </div> <div class="footer-widget"><div id="text-3" class="widget fwidget et_pb_widget widget_text"><h4 class="title">Church Support Group</h4> <div class="textwidget"><p><a href="http://catholicireland.net" target="_blank" rel="noopener"><img src="https://www.churchservices.tv/wp-content/uploads/2018/04/catholic-ireland.png" /></a><br />
+<a href="http://churchtelecom.com" target="_blank" rel="noopener"><img src="https://www.churchservices.tv/wp-content/uploads/2018/04/church-telcom.png" /></a><br />
+<a href="http://staffroom.ie" target="_blank" rel="noopener"><img src="https://www.churchservices.tv/wp-content/uploads/2018/04/staffroom.png" /></a><br />
+<a href="http://churchsupportgroup.com/" target="_blank" rel="noopener"><img src="https://www.churchservices.tv/wp-content/uploads/2018/08/church-support.png" /></a></p>
+</div>
+</div> </div>  </div> 
+</div> 
+<div id="footer-bottom">
+<div class="container clearfix">
+<ul class="et-social-icons">
+<li class="et-social-icon et-social-facebook">
+<a href="https://www.facebook.com/pages/Church-Services-TV/157606014288500" class="icon">
+<span>Facebook</span>
+</a>
+</li>
+<li class="et-social-icon et-social-twitter">
+<a href="https://twitter.com/ChurchServiceTV" class="icon">
+<span>Twitter</span>
+</a>
+</li>
+</ul><div id="footer-info">© ChurchServices.tv     <a href="/privacy-policy">Privacy Policy</a> | <a href="/cookie-policy">Cookie Policy</a></div> </div> 
+</div>
+</footer> 
+</div> 
+</div> 
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript">
+		var et_animation_data = [];
+	</script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var cnArgs = {"ajaxurl":"https:\/\/www.churchservices.tv\/wp-admin\/admin-ajax.php","hideEffect":"fade","onScroll":"no","onScrollOffset":"100","cookieName":"cookie_notice_accepted","cookieValue":"true","cookieTime":"2592000","cookiePath":"\/","cookieDomain":"","redirection":"","cache":"1","refuse":"yes","revoke_cookies":"0","revoke_cookies_opt":"automatic","secure":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.churchservices.tv/wp-content/plugins/cookie-notice/js/front.min.js?ver=1.2.44'></script>
+<script type='text/javascript' src='https://www.churchservices.tv/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://www.churchservices.tv/wp-includes/js/jquery/ui/widget.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://www.churchservices.tv/wp-includes/js/jquery/ui/position.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://www.churchservices.tv/wp-includes/js/jquery/ui/tabs.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://www.churchservices.tv/wp-includes/js/jquery/ui/menu.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://www.churchservices.tv/wp-includes/js/wp-a11y.min.js?ver=4.9.14'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var uiAutocompleteL10n = {"noResults":"No results found.","oneResult":"1 result found. Use up and down arrow keys to navigate.","manyResults":"%d results found. Use up and down arrow keys to navigate.","itemSelected":"Item selected."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.churchservices.tv/wp-includes/js/jquery/ui/autocomplete.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://www.churchservices.tv/wp-content/plugins/cstv/js/cstv.js'></script>
+<script type='text/javascript' src='https://www.churchservices.tv/wp-content/plugins/cstv/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='https://www.churchservices.tv/wp-content/plugins/cstv/js/bootstrap-datepicker.min.js'></script>
+<script type='text/javascript' src='https://www.churchservices.tv/wp-content/plugins/cstv/js/videojs-ie8.min.js?ver=4.9.14'></script>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/videojs-overlay/1.1.4/videojs-overlay.min.js?ver=4.9.14'></script>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.6/jstz.min.js?ver=4.9.14'></script>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js?ver=4.9.14'></script>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.23/moment-timezone-with-data.min.js?ver=4.9.14'></script>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.min.js?ver=4.9.14'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var et_shortcodes_strings = {"previous":"Previous","next":"Next"};
+var et_pb_custom = {"ajaxurl":"https:\/\/www.churchservices.tv\/wp-admin\/admin-ajax.php","images_uri":"https:\/\/www.churchservices.tv\/wp-content\/themes\/Divi\/images","builder_images_uri":"https:\/\/www.churchservices.tv\/wp-content\/themes\/Divi\/includes\/builder\/images","et_frontend_nonce":"2084190797","subscription_failed":"Please, check the fields below to make sure you entered the correct information.","et_ab_log_nonce":"5838909eb9","fill_message":"Please, fill in the following fields:","contact_error_message":"Please, fix the following errors:","invalid":"Invalid email","captcha":"Captcha","prev":"Prev","previous":"Previous","next":"Next","wrong_captcha":"You entered the wrong number in captcha.","is_builder_plugin_used":"","ignore_waypoints":"no","is_divi_theme_used":"1","widget_search_selector":".widget_search","is_ab_testing_active":"","page_id":"128","unique_test_id":"","ab_bounce_rate":"5","is_cache_plugin_active":"yes","is_shortcode_tracking":""};
+var et_pb_box_shadow_elements = [];
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.churchservices.tv/wp-content/themes/Divi/js/custom.min.js?ver=3.0.106'></script>
+<script type='text/javascript' src='https://www.churchservices.tv/wp-content/plugins/divi-builder/core/admin/js/common.js?ver=3.1'></script>
+<script type='text/javascript' src='https://www.churchservices.tv/wp-includes/js/wp-embed.min.js?ver=4.9.14'></script>
+<div id="cookie-notice" role="banner" class="cn-bottom bootstrap" style="color: #fff; background-color: #000;"><div class="cookie-notice-container"><span id="cn-notice-text">We use cookies to ensure that we give you the best experience on our website. If you continue to use this site we will assume that you are happy with it.</span><a href="#" id="cn-accept-cookie" data-cookie-set="accept" class="cn-set-cookie cn-button bootstrap button">Ok</a><a href="#" id="cn-refuse-cookie" data-cookie-set="refuse" class="cn-set-cookie cn-button bootstrap button">No</a><a href="https://www.churchservices.tv/privacy-policy/" target="_blank" id="cn-more-info" class="cn-more-info cn-button bootstrap button">Privacy Policy</a>
+</div>
+<div class="cookie-notice-revoke-container"><a href="#" class="cn-revoke-cookie cn-button bootstrap button">Revoke cookies</a></div>
+</div>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"feaccaa2a1","applicationID":"371143768","transactionName":"YlJWZUdXDUEAUURaWFsYdVJBXwxcTkJRVFIYQ1FcRVoCRgQfU1tCR1RcVEY=","queueTime":0,"applicationTime":1343,"atts":"ThVVEw9NHk8=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
